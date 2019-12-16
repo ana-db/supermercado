@@ -1,4 +1,4 @@
-package com.ipartek.formacion.controller;
+package com.ipartek.formacion.supermercado.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

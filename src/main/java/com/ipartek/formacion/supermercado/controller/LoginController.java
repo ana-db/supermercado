@@ -1,4 +1,4 @@
-package com.ipartek.formacion.controller;
+package com.ipartek.formacion.supermercado.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 				
 		try {
 			//2. lógica de negocio:
-			if (USUARIO.equalsIgnoreCase(nombre) && PASSWORD.equalsIgnoreCase(password)) {
+			if (USUARIO.equals(nombre) && PASSWORD.equals(password)) {
 				
 				//TODO POJO y DAO de USUARIO
 				
