@@ -72,7 +72,7 @@ public class LoginController extends HttpServlet {
 		}
 		finally{
 			//ir a JSP:
-			request.getRequestDispatcher("vista").forward(request, response);
+			request.getRequestDispatcher(vista).forward(request, response);
 
 		}
 
