@@ -19,11 +19,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
-		<meta name="author" content="Ander Uraga">
+		<meta name="author" content="Ana">
 		<title>Supermercado</title>
 		
 		<!-- la base para construir todas las rutas de esta página -->
-	    <!-- <base href="${pageContext.request.contextPath}/" /> <!-- coge directamente el servidor, el puerto y el nombre del proyecto. Añadimos la barra -->
+	    <base href="${pageContext.request.contextPath}/" /> <!-- coge directamente el servidor, el puerto y el nombre del proyecto. Añadimos la barra -->
 	    <!--<p>ContextPath = <b>${pageContext.request.contextPath}</b></p> <!-- coge directamente el servidor, el puerto y el nombre del proyecto -->
 	    		
 		<!-- Bootstrap core CSS -->
@@ -46,9 +46,11 @@
             </c:if>
             
             <c:if test="${not empty usuarioLogeado}" >
+            	<a class="py-2 d-none d-md-inline-block" href="seguridad/index.jsp">Dashboard</a>
 	            <a class="py-2 d-none d-md-inline-block" href="seguridad/productos?accion=listar">Tabla</a>
 	            <a class="py-2 d-none d-md-inline-block" href="seguridad/productos?accion=formulario">Formulario</a> 
-	            <a class="py-2 d-none d-md-inline-block" href="logout">Cerrar Sesión</a>           
+	            <a class="py-2 d-none d-md-inline-block" href="logout">Cerrar Sesión</a>  
+	            <a class="py-2 d-none d-md-inline-block" href="seguridad/productos/formulario.jsp">Ver formulario</a>        
             </c:if>
             
         </div>
