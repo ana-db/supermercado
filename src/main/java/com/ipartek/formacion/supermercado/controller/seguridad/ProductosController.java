@@ -106,13 +106,14 @@ public class ProductosController extends HttpServlet {
 					
 				case ACCION_IR_FORMULARIO:	
 					irFormulario(request, response);
+					break;
 					
 				default:
 					listar(request, response);
 					break;
 			}
 			
-			request.setAttribute("productos", dao.getAll());
+			//request.setAttribute("productos", dao.getAll());
 			
 		}
 		catch (Exception e)
