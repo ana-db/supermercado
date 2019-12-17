@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,28 +23,28 @@ import org.apache.log4j.Logger;
 import com.ipartek.formacion.supermercado.controller.seguridad.ProductosController;
 
 
+
 /**
  * Servlet Filter implementation class SeguridadFilter
  */
 @WebFilter(dispatcherTypes = {
-		DispatcherType.REQUEST, 
-		DispatcherType.FORWARD, 
-		DispatcherType.INCLUDE, 
-		DispatcherType.ERROR
+				DispatcherType.REQUEST, 
+				DispatcherType.FORWARD, 
+				DispatcherType.INCLUDE, 
+				DispatcherType.ERROR
 		}
-			, urlPatterns = { "/privado/*" })
+					, urlPatterns = { "/seguridad/*" })
 public class SeguridadFilter implements Filter {
 	
 	private static final Logger LOG = Logger.getLogger(ProductosController.class);
-    
-    /**
+
+	/**
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		LOG.trace("init");
 	}
 
-    
 	/**
 	 * @see Filter#destroy()
 	 */
@@ -51,7 +52,6 @@ public class SeguridadFilter implements Filter {
 		LOG.trace("destroy");
 	}
 
-	
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
@@ -111,5 +111,4 @@ public class SeguridadFilter implements Filter {
 		}
 	}
 
-	
 }
