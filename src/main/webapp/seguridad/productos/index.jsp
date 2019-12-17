@@ -6,7 +6,7 @@
 	<h1 id="top">Tabla</h1>
 	
 	
-	<a href="/seguridad/productos?accion=formulario">Nuevo Producto</a>
+	<a href="seguridad/productos?accion=formulario">Nuevo Producto</a>
 	
 	
 	
@@ -14,7 +14,7 @@
 		<c:forEach items="${productos}" var="p">
 			<li>
 				${p} <br>
-				<a href="/seguridad/productos?accion=formulario&id=${p.id}">Editar</a>
+				<a href="seguridad/productos?accion=formulario&id=${p.id}">Editar</a>
 			</li>
 		</c:forEach>
 	</ol>
@@ -76,6 +76,19 @@
 			<%
 			}
 			%>		
+			
+			
+			<c:forEach items="${productos}" var="p">
+				<tr>
+					<td>${p.id}</td>
+					<td>${p.nombre}</td>
+					<td>${p.precio}</td>
+					<td><img src="${p.imagen}"></td>
+					<td>${p.descripcion}</td>
+					<td>${p.descuento}</td>
+					<td><a href="seguridad/productos?accion=formulario&id=${p.id}">Editar</a></td>
+				</tr>
+			</c:forEach>
 								
 		</tbody>
 		          

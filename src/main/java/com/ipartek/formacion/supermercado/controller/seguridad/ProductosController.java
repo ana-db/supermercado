@@ -178,7 +178,7 @@ public class ProductosController extends HttpServlet {
 			//modificamos los datos:
 			producto.setId(pId); 
 			producto.setNombre(pNombre);
-			producto.setImagen(pImagen);
+			//producto.setImagen(pImagen);
 			
 			try {
 				dao.update(producto, pId);
@@ -193,23 +193,20 @@ public class ProductosController extends HttpServlet {
 			//crear registro para un producto nuevo
 			Producto p = new Producto();
 			p.setNombre(pNombre);
-			p.setImagen(pImagen);
-			
-			//p.setId(indice);
-			//indice++; //incrementamos para el siguiente
-			
-			
+			//p.setImagen(pImagen);
 			
 			//lo guardamos en la lista
-			//perros.add(p);
 			try {
 				dao.create(p);
-				request.setAttribute("mensajeAlerta", new Alerta(Alerta.TIPO_PRIMARY, "Prodcuto nuevo añadido") );
+				request.setAttribute("mensajeAlerta", new Alerta(Alerta.TIPO_PRIMARY, "Producto nuevo añadido") );
 				
 			} catch (Exception e) {
 				request.setAttribute("mensajeAlerta", new Alerta(Alerta.TIPO_DANGER, "No se puede añadir") );
 			}	
 		}
+		
+		request.setAttribute("productos", dao.getAll() ); //devuelve el dao con todos sus parámetros
+		vistaSeleccionda = VIEW_TABLA; 
 		
 	}
 
@@ -234,8 +231,8 @@ public class ProductosController extends HttpServlet {
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) {
 		
-		request.setAttribute("productos", dao.getAll() );
-		vistaSeleccionda = VIEW_TABLA;
+		request.setAttribute("productos", dao.getAll() ); //devuelve el dao con todos sus parámetros
+		vistaSeleccionda = VIEW_TABLA; //vamos a la tabla
 		
 	}
 	
