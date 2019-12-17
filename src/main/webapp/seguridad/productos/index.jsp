@@ -58,32 +58,13 @@
 	    </thead>
 	    
 	    <tbody>
-	     				
-			<%
-			for ( Producto p :  productos ){
-				int id = (int)p.getId();
-				%>
-				<tr>
-					<td><%=p.getId()%></td>
-					<td><%=p.getNombre()%></td>
-					<td><%=p.getPrecio()%></td>
-					<td><img src="<%=p.getImagen()%>"></td>
-					<td><%=p.getDescripcion()%></td>
-					<td><%=p.getDescuento()%></td>
-					<!-- <td><a href="/seguridad/productos?accion=formulario&id=${p.id}">Editar</a></td> -->
-					<td><a href="/seguridad/productos?accion=formulario&id=<%=p.getId()%>">Editar</a></td> 
-				</tr>
-			<%
-			}
-			%>		
-			
-			
+	     						
 			<c:forEach items="${productos}" var="p">
 				<tr>
 					<td>${p.id}</td>
 					<td>${p.nombre}</td>
 					<td>${p.precio}</td>
-					<td><img src="${p.imagen}"></td>
+					<td><img class="imagen_producto_tabla" src="${p.imagen}"></td>
 					<td>${p.descripcion}</td>
 					<td>${p.descuento}</td>
 					<td><a href="seguridad/productos?accion=formulario&id=${p.id}">Editar</a></td>
