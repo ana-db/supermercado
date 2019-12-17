@@ -139,7 +139,8 @@ public class ProductosController extends HttpServlet {
 
 	// métodos:
 
-	private void irFormulario(HttpServletRequest request, HttpServletResponse response) {
+	private void irFormulario(HttpServletRequest request, HttpServletResponse response) { 
+		//este método sólo nos lleva al formulario, no es para rellenar los campos, para eso utilizamos "guardar"
 
 		// TODO pregutar por pID > 0 recuperar del DAO
 		// si no New Producto()
@@ -159,7 +160,6 @@ public class ProductosController extends HttpServlet {
 
 		}
 	
-
 		request.setAttribute("producto", productoVisualizar);
 		vistaSeleccionda = VIEW_FORM;
 	}
@@ -169,6 +169,8 @@ public class ProductosController extends HttpServlet {
 		
 		// recibir datos del formulario
 		int pId = Integer.parseInt(request.getParameter("id"));
+		float pPrecioFloat = Float.parseFloat(pPrecio);
+		int pDescuentoInt = Integer.parseInt(pDescuento);
 
 		// en función del id del producto:
 		// 1. se modificará si el id > 0, significa que el producto está en la lista
@@ -178,12 +180,14 @@ public class ProductosController extends HttpServlet {
 			LOG.trace("Modificar datos del producto");
 			
 			Producto producto = new Producto();
-			//Producto producto = dao.getById(pId); // getById() en IDAO
-
+			
 			// modificamos los datos:
 			producto.setId(pId);
 			producto.setNombre(pNombre);
-			// producto.setImagen(pImagen);
+			producto.setPrecio(pPrecioFloat);
+			producto.setImagen(pImagen);
+			producto.setDescripcion(pDescripcion);
+			producto.setDescuento(pDescuentoInt);
 
 			try {
 				dao.update(producto, pId);
@@ -198,7 +202,10 @@ public class ProductosController extends HttpServlet {
 			// crear registro para un producto nuevo
 			Producto producto = new Producto();
 			producto.setNombre(pNombre);
-			// p.setImagen(pImagen);
+			producto.setPrecio(pPrecioFloat);
+			producto.setImagen(pImagen);
+			producto.setDescripcion(pDescripcion);
+			producto.setDescuento(pDescuentoInt);
 
 			// lo guardamos en la lista
 			try {
