@@ -11,14 +11,23 @@
 	
 	<!-- ------------------------------------------------------------------------------- -->
 	
-	<form action="/seguridad/productos" method="post">
+	<form action="seguridad/productos" method="post">
+	<!-- <form action="seguridad/productos?accion=guardar" method="post"> -->
 	
 		<div class="form-group">
+				
+			<!-- necesitamos enviar la acción para que el controlador sepa a qué case del switch tiene que entrar -->	
+			<input type="hidden" 
+					name=accion
+					value="guardar">
+		
 	        <label for="id">ID</label>
 	        <input type="number" 
 	               class="form-control" 
 	               name="id" id="id" 
 	               required
+	               readonly
+	               value = "${producto.id}"
 	               placeholder="Identificador del producto"
 	               pattern="[0-9]"
 	               min="0" max="100"
@@ -32,7 +41,8 @@
 	               class="form-control" 
 	               name="nombre" id="nombre" 
 	               required
-	               placeholder="Mínimo 2 Máximo 150"
+	               value = "${producto.nombre}"
+	               placeholder="Mínimo 2 Máximo 150 caracteres"
 	               pattern=".{2,150}"
 	               aria-describedby="nombreHelp">
 	        <small id="nombreHelp" class="form-text text-muted">Nombre del producto</small>
