@@ -29,6 +29,10 @@
 		<!-- Bootstrap core CSS -->
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 		
+		<!-- DATATABLES CSS -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"/>
+		
 		<!-- nuestro css -->
 		<link rel="stylesheet" href="css/custom.css">
 
@@ -50,7 +54,6 @@
 	            <a class="py-2 d-none d-md-inline-block" href="seguridad/productos?accion=listar">Tabla</a>
 	            <a class="py-2 d-none d-md-inline-block" href="seguridad/productos?accion=formulario">Formulario</a> 
 	            <a class="py-2 d-none d-md-inline-block" href="logout">Cerrar Sesión</a>  
-	            <a class="py-2 d-none d-md-inline-block" href="seguridad/productos/formulario.jsp">Ver formulario</a>        
             </c:if>
             
         </div>
